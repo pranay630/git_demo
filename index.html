@@ -3,72 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .container{
-            width: 300px;
-            display: absolute;
-            padding: 34px;
-            /* display: flex; */
-            align-items: center;
-            border: 2px solid;
-            border-radius: 100px;
-            margin: 200px auto 0;
-            padding-left: 200px;
-        }
-        button{
-          padding: 5px;
-          margin: 10px;
-        }
-       
-    </style>
+    <title>Quote of the day</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-       <p id="p">1</p>
-       <p id="demo"></p>
-
-       
-       <button id="btn">Start</button><button onclick="myStop()">Stop the time</button>
-       
-  </div>
-</body>
-   <script>
-    var count = 1;
-      
-      var c = document.getElementById("p");
-    document.getElementById('btn').addEventListener("click", myfun);
-
-
-
-
-      function myfun() {
-        setInterval(() => {
-        if(count < 1000)
-        {
-            count++;
-            c.innerHTML = count;
+    <div class="quote-box">
+        <h2>Quote of the day</h2>
+        <blockquote id="quote">Loading...</blockquote>
+        <span id="author">Loading...</span>
+        <div>
+            
+            <button onclick="getquote(api_url)">New Quote</button>
+            <button onclick="tweet()"><img src="download.png" class="img1"></button>
+        </div>
+    </div>
+    <script>
+        const quote=document.getElementById("quote");
+        const author=document.getElementById("author");
+        const api_url= "https://api.quotable.io/random";
+        async function getquote(url){
+            const res =await fetch(url);
+            var data=await res.json();
+            console.log(data);
+            quote.innerHTML=data.content;
+            author.innerHTML=data.author;
         }
-          },100);
-      }
-
-    
-const myInterval = setInterval(myTimer, 1);
-
-function myTimer() {
-  const date = new Date();
-  document.getElementById("demo").innerHTML = date.toLocaleTimeString();
-}
-
-function myStop() {
-  clearInterval(myInterval);
-}
-
-
-
-
-
-
-
-   </script>
+        getquote(api_url);
+        function tweet(){
+            window.open("https://twitter.com/intent/tweet?text="+ quote.innerHTML + "---- by " + author.innerHTML,"Tweet Window", "width=600, height=300");
+        }
+    </script>
+</body>
 </html>
