@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 100px;
+            display: absolute;
+            padding: 34px;
+            /* display: flex; */
+            align-items: center;
+            border: 2px solid;
+            border-radius: 100px;
+            top: 50%;
+            left: 500px;
+        }
+       
+    </style>
+</head>
+<body>
+  <div class="container">
+       <p id="p">1</p>
+       <button id="btn">Start</button>
+       <!-- <button id="btn1">Stop</button> -->
+  </div>
+</body>
+   <script>
+    var count = 1;
+      
+      var c = document.getElementById("p");
+    document.getElementById('btn').addEventListener("click", myfun);
+
+
+
+      function myfun() {
+        setInterval(() => {
+        if(count < 1000)
+        {
+            count++;
+            c.innerHTML = count;
+        }
+          },100);
+      }
+
+     
+   </script>
+</html>
