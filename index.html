@@ -6,15 +6,19 @@
     <title>Document</title>
     <style>
         .container{
-            width: 100px;
+            width: 300px;
             display: absolute;
             padding: 34px;
             /* display: flex; */
             align-items: center;
             border: 2px solid;
             border-radius: 100px;
-            top: 50%;
-            left: 500px;
+            margin: 200px auto 0;
+            padding-left: 200px;
+        }
+        button{
+          padding: 5px;
+          margin: 10px;
         }
        
     </style>
@@ -22,8 +26,11 @@
 <body>
   <div class="container">
        <p id="p">1</p>
-       <button id="btn">Start</button>
-       <!-- <button id="btn1">Stop</button> -->
+       <p id="demo"></p>
+
+       
+       <button id="btn">Start</button><button onclick="myStop()">Stop the time</button>
+       
   </div>
 </body>
    <script>
@@ -31,6 +38,7 @@
       
       var c = document.getElementById("p");
     document.getElementById('btn').addEventListener("click", myfun);
+
 
 
 
@@ -44,6 +52,23 @@
           },100);
       }
 
-     
+    
+const myInterval = setInterval(myTimer, 1);
+
+function myTimer() {
+  const date = new Date();
+  document.getElementById("demo").innerHTML = date.toLocaleTimeString();
+}
+
+function myStop() {
+  clearInterval(myInterval);
+}
+
+
+
+
+
+
+
    </script>
 </html>
