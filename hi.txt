@@ -1,2 +1,18 @@
-git branchs
-lorem40
+GIT commands
+
+
+1 git add <filename> / git add .
+2 git clone "link"
+3 git commit -m "message"
+4 git log
+5 git tag
+6 git status
+
+branches :
+1  git checkout/switch -b/-c brance name (if new one create)
+2 git branch
+3 git switch - (It takes u to previous branch)
+
+merging
+
+1 git merge feature name
