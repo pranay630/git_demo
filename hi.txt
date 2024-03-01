@@ -16,3 +16,8 @@ branches :
 merging
 
 1 git merge feature name
+
+stash 
+
+1  git stash  # it saves the changes without commit and disappear
+2  git stash apply  # it regains the changes
